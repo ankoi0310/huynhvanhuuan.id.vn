@@ -1,5 +1,4 @@
-import '../globals.css'
-import { Footer, Header } from '@/components/shared'
+import '@/app/globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import React from 'react'
