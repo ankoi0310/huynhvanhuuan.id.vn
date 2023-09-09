@@ -58,6 +58,10 @@
     background-color: var(--button-background-color);
     @apply rounded-lg px-5 py-1.5 text-small-medium;
   }
+
+  .contact-info {
+    @apply flex items-center justify-center gap-x-4 text-h3-bold;
+  }
 }
 
 @media (prefers-color-scheme: dark) {

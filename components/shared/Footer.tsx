@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className={'footer'}>
       <Copyright />
-      <span>2023 | Designed by Koi</span>
+      <span>2023 Code With Koi</span>
     </div>
   )
 }

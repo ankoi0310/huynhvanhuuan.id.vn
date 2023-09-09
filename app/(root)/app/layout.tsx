@@ -7,8 +7,8 @@ import React from 'react'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Code With Koi',
-  description: 'This is my personal website.',
+  title: 'Ứng dụng',
+  description: '',
 }
 
 export default function RootLayout({
@@ -19,9 +19,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <Header />
         <main className={'mt-20'}>{children}</main>
-        <Footer />
       </body>
     </html>
   )
