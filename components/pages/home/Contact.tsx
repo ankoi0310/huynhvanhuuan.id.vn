@@ -1,14 +1,18 @@
 import { CustomIcon } from '@/components/shared'
 import Link from 'next/link'
 import React from 'react'
-import { FiCopy, FiMail, FiPhone } from 'react-icons/fi'
 import {
-  PiCopy,
-  PiEnvelope,
+  FiCopy,
+  FiMail,
+  FiPhone,
+} from 'react-icons/fi'
+import {
   PiFacebookLogo,
   PiFacebookLogoFill,
-  PiTwitterLogo,
-  PiTwitterLogoFill,
+  PiGithubLogo,
+  PiGithubLogoFill,
+  PiTiktokLogo,
+  PiTiktokLogoFill,
   PiYoutubeLogo,
   PiYoutubeLogoFill,
 } from 'react-icons/pi'
@@ -43,8 +47,8 @@ const Contact = () => {
             <div className={'flex gap-x-4'}>
               <Link href={'https://www.github.com/ankoi0310'} target={'_blank'}>
                 <CustomIcon
-                  icon={<PiTwitterLogo />}
-                  hoverIcon={<PiTwitterLogoFill />}
+                  icon={<PiGithubLogo />}
+                  hoverIcon={<PiGithubLogoFill />}
                 />
               </Link>
               <Link href={'https://www.facebook.com/KOI0310.IT'} target={'_blank'}>
@@ -57,6 +61,12 @@ const Contact = () => {
                 <CustomIcon
                   icon={<PiYoutubeLogo />}
                   hoverIcon={<PiYoutubeLogoFill />}
+                />
+              </Link>
+              <Link href={'https://www.tiktok.com/@code_with_koi'} target={'_blank'}>
+                <CustomIcon
+                  icon={<PiTiktokLogo />}
+                  hoverIcon={<PiTiktokLogoFill />}
                 />
               </Link>
             </div>

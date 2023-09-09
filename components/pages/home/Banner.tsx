@@ -8,8 +8,10 @@ import React from 'react'
 import {
   PiFacebookLogo,
   PiFacebookLogoFill,
-  PiTwitterLogo,
-  PiTwitterLogoFill,
+  PiGithubLogo,
+  PiGithubLogoFill,
+  PiTiktokLogo,
+  PiTiktokLogoFill,
   PiYoutubeLogo,
   PiYoutubeLogoFill,
 } from 'react-icons/pi'
@@ -52,15 +54,15 @@ const Banner = () => {
                   <LocationOn /> Ho Chi Minh City, Viet Nam
                 </div>
                 <div className={'flex items-center justify-start gap-x-2'}>
-                  <FiberManualRecord className={'text-green-400'}/> Available for new projects
+                  <FiberManualRecord className={'text-green-400'} /> Available for new projects
                 </div>
               </div>
 
               <div className={'flex items-center justify-start gap-x-4'}>
                 <Link href={'https://www.github.com/ankoi0310'} target={'_blank'}>
                   <CustomIcon
-                    icon={<PiTwitterLogo />}
-                    hoverIcon={<PiTwitterLogoFill />}
+                    icon={<PiGithubLogo />}
+                    hoverIcon={<PiGithubLogoFill />}
                   />
                 </Link>
                 <Link href={'https://www.facebook.com/KOI0310.IT'} target={'_blank'}>
@@ -75,12 +77,19 @@ const Banner = () => {
                     hoverIcon={<PiYoutubeLogoFill />}
                   />
                 </Link>
+                <Link href={'https://www.tiktok.com/@code_with_koi'} target={'_blank'}>
+                  <CustomIcon
+                    icon={<PiTiktokLogo />}
+                    hoverIcon={<PiTiktokLogoFill />}
+                  />
+                </Link>
               </div>
             </div>
 
             {/* right side */}
             <div className={'hidden lg:flex max-w-[400px]'}>
-              <Image loading={'lazy'} src={'/assets/images/banner.png'} alt={'image 1'} width={400} height={400} className={'banner-image'} />
+              <Image loading={'lazy'} src={'/assets/images/banner.png'} alt={'image 1'} width={400} height={400}
+                     className={'banner-image'} />
             </div>
           </div>
         </div>
