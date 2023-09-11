@@ -6,10 +6,6 @@ import Typography from '@/components/ui/typography'
 import Image from 'next/image'
 import React from 'react'
 import { LuMapPin } from 'react-icons/lu'
-import {
-	MdFiberManualRecord,
-	MdLocationOn,
-} from 'react-icons/md'
 import { TypeAnimation } from 'react-type-animation'
 
 import HeroImage from '@/public/assets/images/hero.png'
@@ -18,7 +14,6 @@ const Hero = () => {
 	return (
 		<Container id={'hero'}>
 			<div className={'flex flex-col gap-12 md:flex-row'}>
-				{/* left side */}
 				<div
 					className={'max-w-3xl flex flex-grow flex-col justify-center gap-8 md:order-first md:items-start 2xl:gap-12'}>
 					<div className={'flex flex-col gap-2'}>
@@ -65,10 +60,9 @@ const Hero = () => {
 					<SocialIcon />
 				</div>
 				
-				{/* right side */}
 				<div
 					className={'flex items-center justify-center md:order-last md:flex-grow md:justify-end'}>
-					<div className={'relative h-[360px] w-[360px] md:h-[360px] md:w-[360px]'}>
+					<div className={'relative h-[320px] w-[320px] md:h-[360px] md:w-[360px]'}>
 						<Image
 							src={HeroImage}
 							alt={'hero image'}

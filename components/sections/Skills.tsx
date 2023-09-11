@@ -1,40 +1,25 @@
+import TechnologyDetail from '@/components/cards/TechnologyDetail'
+import Container from '@/components/ui/container'
+import Typography from '@/components/ui/typography'
 import { TECHNOLOGIES } from '@/lib/data'
-import Image from 'next/image'
 import React from 'react'
 
 const Skills = async () => {
-  return (
-    <>
-      <section className={'section'} id={'skills'}>
-        <div className={'container mx-auto'}>
-          <div className={'flex flex-col items-center mb-12'}>
-            <h2 className={'text-h2-semibold uppercase mb-2'}>Skills</h2>
-            <p className={'text-subtitle-regular'}>
-              These are some of the technologies and tools that I use on a daily
-            </p>
-          </div>
-          <div className={'grid grid-cols-7 grid-flow-row gap-y-8'}>
-            {TECHNOLOGIES.map((technology, index) => (
-              <div
-                key={index}
-                className={
-                  'flex flex-col items-center justify-center gap-y-2'
-                }>
-                <div className={'flex flex-1'}>
-                  <Image
-                    src={technology.logo}
-                    alt={technology.label}
-                    width={40}
-                    height={40}
-                  />
-                </div>
-                <p className={'text-body-regular-1'}>{technology.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    </>
-  )
+	return (
+		<Container>
+			<div className={'flex flex-col items-center gap-4'}>
+				<Typography variant={'h2'} className={'font-semibold uppercase text-center'}>Skills</Typography>
+				<Typography variant={'subtitle'} className={'max-w-xl text-center'}>
+					Some of technologies and tools that I use on a daily
+				</Typography>
+			</div>
+			
+			<div className={'w-full grid grid-cols-3 gap-y-4 md:grid-cols-6 md:gap-y-8 lg:grid-cols-7 lg:gap-y-12'}>
+				{TECHNOLOGIES.map((technology, index) => (
+					<TechnologyDetail {...technology} key={index} />
+				))}
+			</div>
+		</Container>
+	)
 }
 export default Skills
