@@ -38,7 +38,7 @@ const Header = () => {
 	return (
 		<header className={cn(
 			'header',
-			scrolled ? 'bg-black/50 backdrop-blur-xl md:border-gray-100' : '',
+			scrolled ? 'bg-gray/50 backdrop-blur-xl md:border-gray-100' : '',
 		)}>
 			<div className={'w-full max-w-7xl mx-auto flex items-center justify-between p-4 md:px-8'}>
 				<Link href={'/'} noCustomization>

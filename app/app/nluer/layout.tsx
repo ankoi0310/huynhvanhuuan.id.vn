@@ -3,7 +3,7 @@ import {
 	AppHeader,
 	Footer,
 } from '@/components/layout'
-import { ThemeProvider } from '@/components/provider/ThemeProvider'
+import { ThemeProvider } from '@/components/layout/ThemeProvider'
 import Script from 'next/script'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'

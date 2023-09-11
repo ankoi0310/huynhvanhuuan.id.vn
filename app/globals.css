@@ -15,20 +15,19 @@
   --app-gray-800: 31 41 55;
   --app-gray-900: 17 24 39;
   --app-gray-950: 3 7 18;
-  @apply text-gray-600;
+  --accent-color: theme('colors.indigo.600');
 }
 
 @layer components {
   .header {
     @apply sticky top-0 z-30 w-full border-b border-transparent bg-gray max-md:border-gray-100;
   }
-
-  .banner-image, .about-image {
-    @apply drop-shadow-xl;
-  }
 }
 
 @layer utilities {
+  .text-accent {
+    @apply text-indigo-600;
+  }
 }
 
 @media (prefers-color-scheme: dark) {

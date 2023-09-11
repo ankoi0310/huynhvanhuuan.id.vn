@@ -4,6 +4,11 @@ import {
 	ProjectDetail,
 	Technology,
 } from '@/lib/types'
+import {
+	LuFacebook,
+	LuGithub,
+	LuYoutube,
+} from 'react-icons/lu'
 
 export const HOME_NAV_LINKS = [
 	{
@@ -49,7 +54,20 @@ export const APP_NAV_LINKS = [
 
 export const EXTERNAL_LINKS = []
 
-export const SOCIAL_LINKS = []
+export const SOCIAL_LINKS = [
+	{
+		icon: LuGithub,
+		url: 'https://github.com/ankoi0310',
+	},
+	{
+		icon: LuFacebook,
+		url: 'https://www.facebook.com/KOI0310.IT',
+	},
+	{
+		icon: LuYoutube,
+		url: 'https://www.youtube.com/@code_with_koi',
+	},
+]
 
 export const TECHNOLOGIES: Technology[] = [
 	{
