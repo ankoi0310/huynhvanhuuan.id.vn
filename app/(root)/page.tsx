@@ -1,23 +1,23 @@
 import {
   About,
-  Banner,
+  Hero,
   Blog,
   Contact,
   Experience,
   Skills,
   Work,
-} from '@/components/pages/home'
+} from '@/components/sections'
 
 export default function Home() {
   return (
     <>
-      <Banner />
-      <About />
-      <Skills />
-      <Experience />
-      <Work />
-      <Blog />
-      <Contact />
+      <Hero />
+      {/*<About />*/}
+      {/*<Skills />*/}
+      {/*<Experience />*/}
+      {/*<Work />*/}
+      {/*<Blog />*/}
+      {/*<Contact />*/}
     </>
   )
 }

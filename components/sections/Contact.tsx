@@ -1,4 +1,4 @@
-import { CustomIcon } from '@/components/shared'
+import { IconButton } from '@/components/shared'
 import Link from 'next/link'
 import React from 'react'
 import {
@@ -46,28 +46,10 @@ const Contact = () => {
             </span>
             <div className={'flex gap-x-4'}>
               <Link href={'https://www.github.com/ankoi0310'} target={'_blank'}>
-                <CustomIcon
-                  icon={<PiGithubLogo />}
-                  hoverIcon={<PiGithubLogoFill />}
-                />
-              </Link>
-              <Link href={'https://www.facebook.com/KOI0310.IT'} target={'_blank'}>
-                <CustomIcon
-                  icon={<PiFacebookLogo />}
-                  hoverIcon={<PiFacebookLogoFill />}
-                />
-              </Link>
-              <Link href={'https://www.youtube.com/@code_with_koi'} target={'_blank'}>
-                <CustomIcon
-                  icon={<PiYoutubeLogo />}
-                  hoverIcon={<PiYoutubeLogoFill />}
-                />
-              </Link>
-              <Link href={'https://www.tiktok.com/@code_with_koi'} target={'_blank'}>
-                <CustomIcon
-                  icon={<PiTiktokLogo />}
-                  hoverIcon={<PiTiktokLogoFill />}
-                />
+                {/*<IconButton*/}
+                {/*  icon={<PiGithubLogo />}*/}
+                {/*  hoverIcon={<PiGithubLogoFill />}*/}
+                {/*/>*/}
               </Link>
             </div>
           </div>

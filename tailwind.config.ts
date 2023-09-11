@@ -1,140 +1,66 @@
 import type { Config } from 'tailwindcss'
 import colors from 'tailwindcss/colors'
-import defaultTheme from 'tailwindcss/defaultTheme'
+import theme from 'tailwindcss/defaultTheme'
 
 const config: Config = {
+  darkMode: 'media',
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    fontSize: {
-      'h1-bold': [
-        '60px',
-        {
-          lineHeight: '72px',
-          letterSpacing: '-0.02em',
-          fontWeight: '700',
-        },
-      ],
-      'h1-semibold': [
-        '36px',
-        {
-          lineHeight: '40px',
-          fontWeight: '600',
-        },
-      ],
-      'h2-semibold': [
-        '36px',
-        {
-          lineHeight: '40px',
-          fontWeight: '600',
-        },
-      ],
-      'h3-bold': [
-        '30px',
-        {
-          lineHeight: '36px',
-          fontWeight: '700',
-        },
-      ],
-      'h3-semibold': [
-        '30px',
-        {
-          lineHeight: '36px',
-          fontWeight: '600',
-        },
-      ],
-      'subtitle-regular': [
-        '20px',
-        {
-          lineHeight: '28px',
-          fontWeight: '400',
-        },
-      ],
-      'body-regular-1': [
-        '18px',
-        {
-          lineHeight: '28px',
-          fontWeight: '400',
-        },
-      ],
-      'body-regular-2': [
-        '16px',
-        {
-          lineHeight: '24px',
-          fontWeight: '400',
-        },
-      ],
-      'base-semibold': [
-        '16px',
-        {
-          lineHeight: '24px',
-          fontWeight: '600',
-        },
-      ],
-      'base-medium': [
-        '16px',
-        {
-          lineHeight: '24px',
-          fontWeight: '500',
-        },
-      ],
-      'base-regular': [
-        '16px',
-        {
-          lineHeight: '24px',
-          fontWeight: '400',
-        },
-      ],
-      'small-medium': [
-        '14px',
-        {
-          lineHeight: '20px',
-          fontWeight: '500',
-        },
-      ],
-      'small-regular': [
-        '14px',
-        {
-          lineHeight: '20px',
-          fontWeight: '400',
-        },
-      ],
-    },
-    screens: {
-      xs: '475px',
-      ...defaultTheme.screens,
-    },
     extend: {
       colors: {
         success: '#00C48C',
         warning: '#FFB800',
         danger: '#FF3B30',
-      },
-      textColor: {
-        light: {
-          1: colors.gray[600],
-          2: colors.gray[900],
-        },
-        dark: {
-          1: colors.gray[300],
-          2: colors.gray[50],
-        },
-      },
-      backgroundColor: {
-        light: {
-          1: colors.white,
-          2: colors.gray[50],
-        },
-        dark: {
-          1: colors.gray[950],
-          2: colors.gray[900],
+        gray: {
+          DEFAULT: 'rgb(var(--app-gray-default) / <alpha-value>)',
+          50: 'rgb(var(--app-gray-50) / <alpha-value>)',
+          100: 'rgb(var(--app-gray-100) / <alpha-value>)',
+          200: 'rgb(var(--app-gray-200) / <alpha-value>)',
+          300: 'rgb(var(--app-gray-300) / <alpha-value>)',
+          400: 'rgb(var(--app-gray-400) / <alpha-value>)',
+          500: 'rgb(var(--app-gray-500) / <alpha-value>)',
+          600: 'rgb(var(--app-gray-600) / <alpha-value>)',
+          700: 'rgb(var(--app-gray-700) / <alpha-value>)',
+          800: 'rgb(var(--app-gray-800) / <alpha-value>)',
+          900: 'rgb(var(--app-gray-900) / <alpha-value>)',
+          950: 'rgb(var(--app-gray-950) / <alpha-value>)',
         },
       },
       backgroundImage: {
         about: 'url(\'/assets/images/about.png\')',
+      },
+      keyframes: {
+        open: {
+          '0%': {
+            opacity: '1',
+            transform: 'translateX(100%)',
+          },
+        },
+        close: {
+          to: {
+            opacity: '0',
+            transform: 'translateX(100%)',
+          },
+        },
+        waving: {
+          '0%': { transform: 'rotate(0.0deg)' },
+          '10%': { transform: 'rotate(14deg)' },
+          '20%': { transform: 'rotate(-8deg)' },
+          '30%': { transform: 'rotate(14deg)' },
+          '40%': { transform: 'rotate(-4deg)' },
+          '50%': { transform: 'rotate(10.0deg)' },
+          '60%': { transform: 'rotate(0.0deg)' },
+          '100%': { transform: 'rotate(0.0deg)' },
+        },
+      },
+      animation: {
+        'drawer-open': 'open 0.3s ease-in-out',
+        'drawer-close': 'close 0.3s ease-in-out',
+        'waving-hand': 'waving 2s linear 3',
       },
     },
   },

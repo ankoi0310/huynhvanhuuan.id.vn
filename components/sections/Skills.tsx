@@ -1,4 +1,4 @@
-import { skillList } from '@/constants'
+import { TECHNOLOGIES } from '@/lib/data'
 import Image from 'next/image'
 import React from 'react'
 
@@ -14,7 +14,7 @@ const Skills = async () => {
             </p>
           </div>
           <div className={'grid grid-cols-7 grid-flow-row gap-y-8'}>
-            {skillList.map((skill, index) => (
+            {TECHNOLOGIES.map((technology, index) => (
               <div
                 key={index}
                 className={
@@ -22,15 +22,15 @@ const Skills = async () => {
                 }>
                 <div className={'flex flex-1'}>
                   <Image
-                    src={skill.imgUrl}
-                    alt={skill.name}
+                    src={technology.logo}
+                    alt={technology.label}
                     width={40}
                     height={40}
                   />
                 </div>
-                <p className={'text-body-regular-1'}>{skill.name}</p>
+                <p className={'text-body-regular-1'}>{technology.label}</p>
               </div>
-              ))}
+            ))}
           </div>
         </div>
       </section>

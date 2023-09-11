@@ -1,7 +1,7 @@
 import '@/app/globals.css'
 import {
+	AppHeader,
 	Footer,
-	Header,
 } from '@/components/layout'
 import { ThemeProvider } from '@/components/provider/ThemeProvider'
 import Script from 'next/script'
@@ -70,7 +70,7 @@ export default function RootLayout({
 			}
 			<body className={`${inter.className} bg-gray text-gray-600 antialiased`}>
 				<ThemeProvider attribute={'class'}>
-					<Header />
+					<AppHeader />
 					<main className={'w-full min-h-screen flex flex-col'}>{children}</main>
 					<Footer />
 				</ThemeProvider>

@@ -3,79 +3,47 @@
 @tailwind utilities;
 
 :root {
-  --text-color: theme('textColor.light.1');
-  --text-color-bold: theme('textColor.light.2');
-  --text-accent-color: #8a2be2;
-  --button-color: theme('textColor.dark.2');
-  --button-background-color: theme('textColor.light.2');
-  --secondary-background-color: theme('backgroundColor.light.2');
-  @apply text-light-1 bg-light-1;
+  --app-gray-default: 255 255 255;
+  --app-gray-50: 249 250 251;
+  --app-gray-100: 243 244 246;
+  --app-gray-200: 229 231 235;
+  --app-gray-300: 209 213 219;
+  --app-gray-400: 156 163 175;
+  --app-gray-500: 107 114 128;
+  --app-gray-600: 75 85 99;
+  --app-gray-700: 55 65 81;
+  --app-gray-800: 31 41 55;
+  --app-gray-900: 17 24 39;
+  --app-gray-950: 3 7 18;
+  @apply text-gray-600;
 }
 
 @layer components {
   .header {
-    @apply fixed top-0 z-30 flex w-full items-center justify-between px-24 py-6;
+    @apply sticky top-0 z-30 w-full border-b border-transparent bg-gray max-md:border-gray-100;
   }
 
-  .header__menu_item {
-    @apply text-base-medium;
-  }
-
-  .footer {
-    @apply flex items-center justify-center gap-x-2 w-full h-16 bg-[var(--secondary-background-color)];
-  }
-
-  .banner-image {
-    -webkit-filter: drop-shadow(10px -20px 50px var(--text-accent-color));
-    filter: drop-shadow(10px -20px 50px var(--text-accent-color));
-  }
-
-  .about-image {
-    -webkit-filter: drop-shadow(10px -20px 50px var(--text-accent-color));
-    filter: drop-shadow(10px -20px 50px var(--text-accent-color));
+  .banner-image, .about-image {
+    @apply drop-shadow-xl;
   }
 }
 
 @layer utilities {
-  .section {
-    @apply px-6 sm:px-24 py-8 lg:py-16;
-  }
-
-  .section-even {
-    background-color: var(--secondary-background-color);
-  }
-
-  .text-bold {
-    color: var(--text-color-bold);
-  }
-
-  .text-accent {
-    color: var(--text-accent-color);
-  }
-
-  .btn {
-    color: var(--button-color);
-    background-color: var(--button-background-color);
-    @apply rounded-lg px-5 py-1.5 text-small-medium;
-  }
-
-  .contact-info {
-    @apply flex items-center justify-center gap-x-4 text-h3-bold;
-  }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text-color: theme('textColor.dark.1');
-    --text-color-bold: theme('textColor.dark.2');
-    --text-accent-color: #4B0082;
-    --button-color: theme('textColor.light.2');
-    --button-background-color: theme('textColor.dark.2');
-    --secondary-background-color: theme('backgroundColor.dark.2');
-    @apply text-dark-1 bg-dark-1;
+    --app-gray-default: 3 7 18;
+    --app-gray-50: 17 24 39;
+    --app-gray-100: 31 41 55;
+    --app-gray-200: 55 65 81;
+    --app-gray-300: 75 85 99;
+    --app-gray-400: 107 114 128;
+    --app-gray-500: 156 163 175;
+    --app-gray-600: 209 213 219;
+    --app-gray-700: 229 231 235;
+    --app-gray-800: 243 244 246;
+    --app-gray-900: 249 250 251;
+    --app-gray-950: 255 255 255;
   }
-}
-
-p {
-  @apply py-2;
 }

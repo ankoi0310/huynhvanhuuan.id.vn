@@ -1,5 +1,5 @@
 import About from './About'
-import Banner from './Banner'
+import Hero from './Hero'
 import Blog from './Blog'
 import Contact from './Contact'
 import Experience from './Experience'
@@ -8,7 +8,7 @@ import Work from './Work'
 
 export {
   About,
-  Banner,
+  Hero,
   Blog,
   Contact,
   Experience,

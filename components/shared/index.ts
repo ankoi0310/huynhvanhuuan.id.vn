@@ -1,9 +1,5 @@
-import Header from './Header'
-import Footer from './Footer'
-import CustomIcon from './CustomIcon'
+import IconButton from './IconButton'
 
 export {
-  Header,
-  Footer,
-  CustomIcon,
+  IconButton,
 }
