@@ -10,9 +10,9 @@ import { Inter } from 'next/font/google'
 import React from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
-const title = 'Koi | Full Stack Developer'
-const description = 'This is my personal website.'
-const url = 'https://huynhvanhuuan.id.vn'
+const title = 'Application | NLUer'
+const description = 'An application for students of Nong Lam University'
+const url = 'https://huynhvanhuuan.id.vn/app/nluer'
 
 export const metadata: Metadata = {
 	metadataBase: new URL(url),
@@ -22,9 +22,7 @@ export const metadata: Metadata = {
 	keywords: [
 		'Koi',
 		'Code With Koi',
-		'Frontend Developer',
-		'Full Stack Developer',
-		'Web Developer',
+		'NLUer',
 	],
 	themeColor: [
 		{ media: '(prefers-color-scheme: light)', color: 'white' },
