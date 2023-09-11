@@ -4,7 +4,7 @@ import { IconButton } from '@/components/shared/index'
 import { SOCIAL_LINKS } from '@/lib/data'
 import React from 'react'
 
-const SocialIcon = () => {
+const SocialIcons = () => {
 	return (
 		<div className='flex gap-1'>
 			{SOCIAL_LINKS.map((socialLink, index) => (
@@ -18,4 +18,4 @@ const SocialIcon = () => {
 		</div>
 	)
 }
-export default SocialIcon
+export default SocialIcons

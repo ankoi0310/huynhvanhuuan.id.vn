@@ -1,61 +1,96 @@
-import { IconButton } from '@/components/shared'
+'use client'
+
+import {
+	IconButton,
+	SocialIcons,
+} from '@/components/shared'
+import Container from '@/components/ui/container'
+import Typography from '@/components/ui/typography'
+import { useWindowSize } from '@/hooks'
+import { copyToClipboard } from '@/lib/utils'
+import {
+	Copy,
+	Mail,
+	Phone,
+} from 'lucide-react'
 import Link from 'next/link'
-import React from 'react'
-import {
-  FiCopy,
-  FiMail,
-  FiPhone,
-} from 'react-icons/fi'
-import {
-  PiFacebookLogo,
-  PiFacebookLogoFill,
-  PiGithubLogo,
-  PiGithubLogoFill,
-  PiTiktokLogo,
-  PiTiktokLogoFill,
-  PiYoutubeLogo,
-  PiYoutubeLogoFill,
-} from 'react-icons/pi'
+import React, { useState } from 'react'
+
+const email = 'huynhvahuuan3620@gmail.com'
+const phone = '+84 787782050'
+
+type CopyValue = 'email' | 'phone'
 
 const Contact = () => {
-  return (
-    <>
-      <section className={'section'} id={'contact'}>
-        <div className={'container mx-auto'}>
-          <div className={'flex flex-col items-center mb-12'}>
-            <h2 className={'text-h2-semibold uppercase mb-2'}>Get in touch</h2>
-            <p className={'text-subtitle-regular'}>
-              Feel free to reach out to me for any inquiries
-            </p>
-          </div>
-          <div className={'flex flex-col items-center mb-12 gap-y-3'}>
-            <h3 className={'contact-info'}>
-              <FiMail />
-              <span>huynhvahuuan3620@gmail.com</span>
-              <FiCopy />
-            </h3>
-            <h3 className={'contact-info'}>
-              <FiPhone />
-              <span>+84 787782050</span>
-              <FiCopy />
-            </h3>
-          </div>
-          <div className={'flex flex-col items-center gap-y-2'}>
-            <span className={'text-small-regular'}>
-              You may also find me on these platforms
-            </span>
-            <div className={'flex gap-x-4'}>
-              <Link href={'https://www.github.com/ankoi0310'} target={'_blank'}>
-                {/*<IconButton*/}
-                {/*  icon={<PiGithubLogo />}*/}
-                {/*  hoverIcon={<PiGithubLogoFill />}*/}
-                {/*/>*/}
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
-  )
+	const { width } = useWindowSize()
+	const [isCopied, setIsCopied] = useState(false)
+	const [type, setType] = useState<CopyValue | null>(null)
+	
+	const handleCopy = async (text: string, type: CopyValue) => {
+		try {
+			await copyToClipboard(text)
+			setIsCopied(true)
+			setType(type)
+			
+			let timeoutId = setTimeout(() => {
+				setIsCopied(false)
+				setType(null)
+				clearTimeout(timeoutId)
+			}, 1500)
+		} catch (error) {
+			setIsCopied(false)
+			setType(null)
+			alert('Failed to copy')
+		}
+	}
+	
+	return (
+		<Container id={'contact'}>
+			<div className={'flex flex-col items-center gap-4'}>
+				<Typography variant={'h2'} className={'font-semibold uppercase'}>Get in touch</Typography>
+				<Typography variant={'subtitle'}>
+					Feel free to reach out to me for any inquiries
+				</Typography>
+			</div>
+			<div className={'flex flex-col items-center gap-6 md:gap-12'}>
+				<div className={'flex flex-col items-center md:gap-4'}>
+					<div className={'flex items-center gap-4 md:gap-5'}>
+						<Mail className='h-6 w-6 md:h-8 md:w-8' />
+						<Typography variant={'h3'}>
+							{email}
+						</Typography>
+						<IconButton
+							size={width && width < 768 ? 'md' : 'lg'}
+							onClick={() => handleCopy(email, 'email')}
+							showTooltip={isCopied && type === 'email'}
+							tooltipText='Copied!'
+						>
+							<Copy />
+						</IconButton>
+					</div>
+					
+					<div className={'flex items-center gap-4 md:gap-5'}>
+						<Phone className='h-6 w-6 md:h-8 md:w-8' />
+						<Typography variant={'h3'}>
+							{phone}
+						</Typography>
+						<IconButton
+							size={width && width < 768 ? 'md' : 'lg'}
+							onClick={() => handleCopy(phone.replace(' ', ''), 'phone')}
+							showTooltip={isCopied && type === 'phone'}
+							tooltipText='Copied!'
+						>
+							<Copy />
+						</IconButton>
+					</div>
+				</div>
+				
+				<div className={'flex flex-col items-center gap-2'}>
+					<Typography>You may also find me on these platforms</Typography>
+					<SocialIcons />
+				</div>
+			</div>
+		</Container>
+	)
 }
 export default Contact

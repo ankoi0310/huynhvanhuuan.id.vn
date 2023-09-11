@@ -46,7 +46,6 @@ const Header = () => {
 				</Link>
 				
 				<div className={'hidden items-center gap-6 md:flex'}>
-					{/* menu items */}
 					<ul className={'flex items-center gap-6 list-none'}>
 						{
 							HOME_NAV_LINKS.map((link, index) => (
@@ -56,12 +55,7 @@ const Header = () => {
 										activeClass='active'
 										smooth={true}
 										spy={true}
-										onClick={() => {
-											const timeoutId = setTimeout(() => {
-												setIsOpen(false)
-												clearTimeout(timeoutId)
-											}, 500)
-										}}
+										className={'cursor-pointer text-base font-medium transition-all hover:text-gray-900 active:text-gray-600'}
 									>
 										{link.label}
 									</rs.Link>
@@ -70,14 +64,10 @@ const Header = () => {
 						}
 					</ul>
 					
-					{/* vertical divider */}
 					<div className={'h-6 w-0.5 bg-gray-100'}></div>
 					
 					<div className={'flex items-center gap-x-6'}>
-						{/* theme switcher */}
 						<ThemeSwitcher />
-						
-						{/* download CV button */}
 						<DownloadCVButton />
 					</div>
 				</div>

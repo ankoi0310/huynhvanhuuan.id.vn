@@ -8,8 +8,8 @@ const Skills = async () => {
 	return (
 		<Container>
 			<div className={'flex flex-col items-center gap-4'}>
-				<Typography variant={'h2'} className={'font-semibold uppercase text-center'}>Skills</Typography>
-				<Typography variant={'subtitle'} className={'max-w-xl text-center'}>
+				<Typography variant={'h2'} className={'font-semibold uppercase'}>Skills</Typography>
+				<Typography variant={'subtitle'}>
 					Some of technologies and tools that I use on a daily
 				</Typography>
 			</div>

@@ -1,9 +1,9 @@
 import IconButton from './IconButton'
-import SocialIcon from './SocialIcon'
+import SocialIcons from './SocialIcons'
 import ImageWrapper from './ImageWrapper'
 
 export {
 	IconButton,
-	SocialIcon,
+	SocialIcons,
 	ImageWrapper,
 }

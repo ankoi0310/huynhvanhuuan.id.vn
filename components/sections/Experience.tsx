@@ -1,19 +1,17 @@
+import Container from '@/components/ui/container'
+import Typography from '@/components/ui/typography'
 import React from 'react'
 
 const Experience = () => {
-  return (
-    <>
-      <section className={'section section-even'} id={'experience'}>
-        <div className={'container mx-auto'}>
-          <div className={'flex flex-col items-center mb-12'}>
-            <h2 className={'text-h2-semibold uppercase mb-2'}>Experience</h2>
-            <p className={'text-subtitle-regular'}>
-              Updating...
-            </p>
-          </div>
-        </div>
-      </section>
-    </>
-  )
+	return (
+		<Container id={'experience'} className={'bg-gray-50'}>
+			<div className={'flex flex-col items-center gap-4'}>
+				<Typography variant={'h2'} className={'font-semibold uppercase'}>Experience</Typography>
+				<Typography variant={'subtitle'}>
+					Updating...
+				</Typography>
+			</div>
+		</Container>
+	)
 }
 export default Experience

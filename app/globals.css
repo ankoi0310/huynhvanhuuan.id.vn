@@ -25,6 +25,10 @@
 }
 
 @layer utilities {
+  .active {
+    @apply text-gray-900;
+  }
+
   .text-accent {
     @apply text-indigo-600;
   }

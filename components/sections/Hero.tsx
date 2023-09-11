@@ -1,6 +1,6 @@
 'use client'
 
-import { SocialIcon } from '@/components/shared'
+import { SocialIcons } from '@/components/shared'
 import Container from '@/components/ui/container'
 import Typography from '@/components/ui/typography'
 import Image from 'next/image'
@@ -57,7 +57,7 @@ const Hero = () => {
 							<Typography>Available for new projects</Typography>
 						</div>
 					</div>
-					<SocialIcon />
+					<SocialIcons />
 				</div>
 				
 				<div
