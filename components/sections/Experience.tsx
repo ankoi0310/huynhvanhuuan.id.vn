@@ -6,7 +6,7 @@ const Experience = () => {
 	return (
 		<Container id={'experience'} className={'bg-gray-50'}>
 			<div className={'flex flex-col items-center gap-4'}>
-				<Typography variant={'h2'} className={'font-semibold uppercase'}>Experience</Typography>
+				<Typography variant={'h2'} className={'uppercase'}>Experience</Typography>
 				<Typography variant={'subtitle'}>
 					Updating...
 				</Typography>

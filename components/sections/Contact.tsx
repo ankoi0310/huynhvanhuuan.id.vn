@@ -47,7 +47,7 @@ const Contact = () => {
 	return (
 		<Container id={'contact'}>
 			<div className={'flex flex-col items-center gap-4'}>
-				<Typography variant={'h2'} className={'font-semibold uppercase'}>Get in touch</Typography>
+				<Typography variant={'h2'} className={'uppercase'}>Get in touch</Typography>
 				<Typography variant={'subtitle'}>
 					Feel free to reach out to me for any inquiries
 				</Typography>
