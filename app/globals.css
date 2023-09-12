@@ -22,6 +22,14 @@
   .header {
     @apply sticky top-0 z-30 w-full border-b border-transparent bg-gray max-md:border-gray-100;
   }
+
+  .project-image {
+    @apply flex items-center justify-center border-gray-100 bg-gray-50 p-8 dark:bg-gray-200 max-md:rounded-t-xl md:w-1/2 lg:p-12;
+  }
+
+  .project-content {
+    @apply flex flex-col gap-6 p-8 md:w-1/2 lg:p-12;
+  }
 }
 
 @layer utilities {

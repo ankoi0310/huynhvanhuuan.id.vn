@@ -1,14 +1,15 @@
 import ProjectNLU from '@/public/assets/images/project-nlu.png'
+import ProjectNLUer from '@/public/assets/images/project-nluer.png'
 
 import {
 	ProjectDetail,
 	Technology,
 } from '@/lib/types'
 import {
-	LuFacebook,
-	LuGithub,
-	LuYoutube,
-} from 'react-icons/lu'
+	Facebook,
+	Github,
+	Youtube,
+} from 'lucide-react'
 
 export const HOME_NAV_LINKS = [
 	{
@@ -52,19 +53,23 @@ export const APP_NAV_LINKS = [
 	},
 ]
 
-export const EXTERNAL_LINKS = []
+export const EXTERNAL_LINKS = {
+	GITHUB: 'https://github.com/ankoi0310',
+	FACEBOOK: 'https://www.facebook.com/KOI0310.IT',
+	YOUTUBE: 'https://www.youtube.com/@code_with_koi',
+}
 
 export const SOCIAL_LINKS = [
 	{
-		icon: LuGithub,
+		icon: Github,
 		url: 'https://github.com/ankoi0310',
 	},
 	{
-		icon: LuFacebook,
+		icon: Facebook,
 		url: 'https://www.facebook.com/KOI0310.IT',
 	},
 	{
-		icon: LuYoutube,
+		icon: Youtube,
 		url: 'https://www.youtube.com/@code_with_koi',
 	},
 ]
@@ -73,7 +78,7 @@ export const TECHNOLOGIES: Technology[] = [
 	{
 		label: 'JavaScript',
 		logo: '/assets/icons/javascript.svg',
-		darkLogo: '/assets/icons/javascript-dark.svg',
+		darkLogo: '',
 		url: '',
 	},
 	{
@@ -158,48 +163,23 @@ export const PROJECTS: ProjectDetail[] = [
 		url: 'https://nlu.huynhvanhuuan.id.vn',
 		image: ProjectNLU,
 		technologies: [
-			'React',
-			'Typescript',
-			'React Bootstrap',
-			'Firebase',
 			'Express.js',
-			'PostgreSQL',
-			'Styled Components',
+			'React.js',
+			'Typescript',
 			'Redux',
+			'TailwindCSS',
 		],
 	},
 	{
-		name: 'NLU',
+		name: 'NLUer',
 		description:
-			'Another version inspired by the course registration page of Nong Lam University.',
-		url: 'https://nlu.huynhvanhuuan.id.vn',
-		image: ProjectNLU,
+			'A mobile application for students of Nong Lam University.',
+		url: 'https://huynhvanhuuan.id.vn/app/nluer',
+		image: ProjectNLUer,
 		technologies: [
-			'React',
-			'Typescript',
-			'React Bootstrap',
+			'Flutter',
+			'Dart',
 			'Firebase',
-			'Express.js',
-			'PostgreSQL',
-			'Styled Components',
-			'Redux',
-		],
-	},
-	{
-		name: 'NLU',
-		description:
-			'Another version inspired by the course registration page of Nong Lam University.',
-		url: 'https://nlu.huynhvanhuuan.id.vn',
-		image: ProjectNLU,
-		technologies: [
-			'React',
-			'Typescript',
-			'React Bootstrap',
-			'Firebase',
-			'Express.js',
-			'PostgreSQL',
-			'Styled Components',
-			'Redux',
 		],
 	},
 ]
