@@ -52,9 +52,10 @@ const Header = () => {
 								<li key={index}>
 									<rs.Link
 										to={link.to}
-										activeClass='active'
-										smooth={true}
-										spy={true}
+										activeClass={'active'}
+										spy
+										smooth
+										duration={0}
 										className={'cursor-pointer text-base font-medium transition-all hover:text-gray-900 active:text-gray-600'}
 									>
 										{link.label}

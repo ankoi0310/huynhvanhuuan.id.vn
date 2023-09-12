@@ -12,9 +12,10 @@ const TechnologyDetail = ({ label, logo, darkLogo, url }: Technology) => {
 					src={logo}
 					srcForDarkMode={darkLogo}
 					alt={label}
+					priority
 					width={48}
 					height={48}
-					className='transition-transform duration-300 md:hover:scale-110'
+					className='w-[48px] h-[48px] transition-transform duration-300 md:hover:scale-110'
 				/>
 			</Link>
 			<Typography variant='body1'>{label}</Typography>

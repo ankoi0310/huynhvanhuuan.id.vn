@@ -1,16 +1,26 @@
+import Link from '@/components/navigation/Link'
+import { Button } from '@/components/ui/button'
 import Container from '@/components/ui/container'
+import Typography from '@/components/ui/typography'
 import React from 'react'
 
 const Blog = () => {
 	return (
-		<Container id={'blog'}>
-			<section className={'section section-even'} id={'blog'}>
-				<div className={'container mx-auto'}>
-					<div className={'flex flex-col items-center mb-12'}>
-						<h2 className={'text-h2-semibold uppercase mb-2'}>My blog</h2>
-					</div>
-				</div>
-			</section>
+		<Container id={'blog'} className={'bg-gray-50'}>
+			<div className={'flex flex-col items-center gap-4'}>
+				<Typography variant={'h2'} className={'uppercase'}>My blog</Typography>
+				<Typography variant={'subtitle'}>
+					Updating...
+				</Typography>
+			</div>
+			
+			<div className={'flex items-center justify-center'}>
+				<Button>
+					<Link href={'/blog'} noCustomization>
+						Visit my blog
+					</Link>
+				</Button>
+			</div>
 		</Container>
 	)
 }
