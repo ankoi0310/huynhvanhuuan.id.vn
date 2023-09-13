@@ -85,7 +85,7 @@ export default function Page() {
 		}
 	}
 	
-	const handleDonwload = async (link: number) => {
+	const handleDonwload = (link: number) => {
 		switch (link) {
 			case 1:
 				console.log(1)
@@ -159,8 +159,8 @@ export default function Page() {
 							<div className={'flex-1 flex flex-col items-end justify-start pr-20'}>
 								<div className={'w-1/3 flex flex-col gap-4'}>
 									<Link href={`/api/koi-wave/tiktok/download?url=${url}&hd=${1}`} noCustomization>Download</Link>
-									<Button type={'submit'} onClick={async () => await handleDonwload(1)}>Download 1</Button>
-									<Button type={'submit'} onClick={async () => await handleDonwload(2)}>Download 2</Button>
+									<Button type={'submit'} onClick={() => handleDonwload(1)}>Download 1</Button>
+									<Button type={'submit'} onClick={() => handleDonwload(2)}>Download 2</Button>
 								</div>
 							</div>
 						</div>
