@@ -183,3 +183,9 @@ export const PROJECTS: ProjectDetail[] = [
 		],
 	},
 ]
+
+export const WAVE_TITLE = {
+	TIKTOK: 'Download TikTok video',
+	FACEBOOK: 'Download Facebook video',
+	INSTAGRAM: 'Download Instagram video',
+}

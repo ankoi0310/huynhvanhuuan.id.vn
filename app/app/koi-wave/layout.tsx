@@ -10,7 +10,7 @@ import { Inter } from 'next/font/google'
 import React from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
-const title = 'Wave'
+const title = 'Koi Wave'
 const description = 'Download free videos.'
 const url = 'https://huynhvanhuuan.id.vn/app/wave'
 
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 	creator: 'Code With Koi',
 	keywords: [
 		'Koi',
-		'KoiWave',
+		'Koi Wave',
 		'Code With Koi',
 	],
 	themeColor: [
@@ -63,12 +63,29 @@ export default function RootLayout({
             gtag('config', '${googleAnalyticsId}');
           `}
 						</Script>
+						<Script
+							async
+							src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID}`}
+							strategy='lazyOnload'
+							crossOrigin='anonymous'
+						/>
 					</head>
 				) : null
 			}
 			<body className={`${inter.className} bg-gray text-gray-600 antialiased`}>
 				<ThemeProvider attribute={'class'}>
-					<AppHeader />
+					<AppHeader
+						title={'Koi Wave'}
+						customMenu={
+							<>
+								{/* Language dropdown */}
+								<div className={'relative'}>
+									{/* <LanguageDropdown /> */}
+									Languages
+								</div>
+							</>
+						}
+					/>
 					<main className={'w-full min-h-screen flex flex-col'}>{children}</main>
 					<Footer />
 				</ThemeProvider>

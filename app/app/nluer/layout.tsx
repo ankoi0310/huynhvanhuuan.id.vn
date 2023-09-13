@@ -68,7 +68,7 @@ export default function RootLayout({
 			}
 			<body className={`${inter.className} bg-gray text-gray-600 antialiased`}>
 				<ThemeProvider attribute={'class'}>
-					<AppHeader />
+					<AppHeader title={'NLUer'} />
 					<main className={'w-full min-h-screen flex flex-col'}>{children}</main>
 					<Footer />
 				</ThemeProvider>

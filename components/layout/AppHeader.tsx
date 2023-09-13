@@ -11,17 +11,26 @@ import {
 } from '@/lib/data'
 import { cn } from '@/lib/utils'
 import React, {
+	Fragment,
 	useEffect,
 	useState,
 } from 'react'
 
-const Logo = () => (
+const Logo = ({ title }: { title?: string }) => (
 	<Typography variant={'h3'} className={'font-bold'}>
-		Code With Koi
+		{
+			title ?? 'Code With Koi'
+		}
 	</Typography>
 )
 
-const AppHeader = () => {
+interface AppHeaderProps {
+	title?: string
+	noMenu?: boolean
+	customMenu?: React.ReactNode
+}
+
+const AppHeader = ({ title, noMenu, customMenu }: AppHeaderProps) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const scrolled = useScroll(40)
 	const size = useWindowSize()
@@ -39,23 +48,31 @@ const AppHeader = () => {
 		)}>
 			<div className={'w-full max-w-7xl mx-auto flex items-center justify-between p-4 md:px-8'}>
 				<Link href={'/'} noCustomization>
-					<Logo />
+					<Logo title={title} />
 				</Link>
 				
-				<div className={'hidden items-center gap-6 md:flex'}>
-					{/* menu items */}
-					<ul className={'flex items-center gap-6 list-none'}>
-						{
-							APP_NAV_LINKS.map((link, index) => (
-								<li key={index}>
-									<Link href={link.href}>{link.label}</Link>
-								</li>
-							))
-						}
-					</ul>
-				</div>
-				
-				{/* drawer mobile menu */}
+				{
+					noMenu ?? (
+						customMenu ?? (
+							<Fragment>
+								<div className={'hidden items-center gap-6 md:flex'}>
+									{/* menu items */}
+									<ul className={'flex items-center gap-6 list-none'}>
+										{
+											APP_NAV_LINKS.map((link, index) => (
+												<li key={index}>
+													<Link href={link.href}>{link.label}</Link>
+												</li>
+											))
+										}
+									</ul>
+								</div>
+								
+								{/* drawer mobile menu */}
+							</Fragment>
+						)
+					)
+				}
 			</div>
 		</header>
 	)
