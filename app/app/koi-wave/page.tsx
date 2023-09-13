@@ -85,6 +85,25 @@ export default function Page() {
 		}
 	}
 	
+	const handleDonwload = async (link: number) => {
+		switch (link) {
+			case 1:
+				console.log(1)
+				let a = document.createElement('a')
+				a.href = `/api/koi-wave/tiktok/download?url=${url}&hd=${1}`
+				a.download = 'video.mp4'
+				a.click()
+				break
+			case 2:
+				console.log(2)
+				let b = document.createElement('a')
+				b.href = `/api/koi-wave/tiktok/test`
+				b.download = 'video.mp4'
+				b.click()
+				break
+		}
+	}
+	
 	return (
 		<>
 			<Container className={'bg-gray-100'}>
@@ -140,8 +159,8 @@ export default function Page() {
 							<div className={'flex-1 flex flex-col items-end justify-start pr-20'}>
 								<div className={'w-1/3 flex flex-col gap-4'}>
 									<Link href={`/api/koi-wave/tiktok/download?url=${url}&hd=${1}`} noCustomization>Download</Link>
-									{/*<Button type={'submit'}>Download 1</Button>*/}
-									{/*<Button type={'submit'}>Download 2</Button>*/}
+									<Button type={'submit'} onClick={async () => await handleDonwload(1)}>Download 1</Button>
+									<Button type={'submit'} onClick={async () => await handleDonwload(2)}>Download 2</Button>
 								</div>
 							</div>
 						</div>
