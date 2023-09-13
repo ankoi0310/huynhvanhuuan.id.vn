@@ -1,6 +1,6 @@
 'use client'
 
-import AdBanner from '@/components/ads/AdBanner'
+import Ads from '@/components/ads/Ads'
 import Link from '@/components/navigation/Link'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
@@ -16,6 +16,12 @@ import Typography from '@/components/ui/typography'
 import { WAVE_TITLE } from '@/lib/data'
 import { EmbedVideo } from '@/lib/types'
 import { zodResolver } from '@hookform/resolvers/zod'
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from '@radix-ui/react-accordion'
 import axios from 'axios'
 import Image from 'next/image'
 import {
@@ -133,7 +139,7 @@ export default function Page() {
 							</Card>
 							<div className={'flex-1 flex flex-col items-end justify-start pr-20'}>
 								<div className={'w-1/3 flex flex-col gap-4'}>
-									{/*<Link href={`/api/koi-wave/tiktok/download?url=${url}&hd=${1}`} noCustomization>Download</Link>*/}
+									<Link href={`/api/koi-wave/tiktok/download?url=${url}&hd=${1}`} noCustomization>Download</Link>
 									{/*<Button type={'submit'}>Download 1</Button>*/}
 									{/*<Button type={'submit'}>Download 2</Button>*/}
 								</div>
@@ -144,10 +150,36 @@ export default function Page() {
 			}
 			
 			<Container>
-				<AdBanner
+				<Ads
+					data-ad-slot='4771983590'
+					data-ad-layout='in-article'
+					data-ad-format='fluid'
+					style={{
+						display: 'block',
+						textAlign: 'center',
+					}}
+				/>
+			</Container>
+			
+			<Container>
+				<Accordion type='single' collapsible className={'w-full'}>
+					<AccordionItem value='item-1'>
+						<AccordionTrigger>Is it accessible?</AccordionTrigger>
+						<AccordionContent>
+							Yes. It adheres to the WAI-ARIA design pattern.
+						</AccordionContent>
+					</AccordionItem>
+				</Accordion>
+			</Container>
+			
+			<Container>
+				<Ads
 					data-ad-slot='4771983590'
 					data-ad-format='auto'
 					data-full-width-responsive='true'
+					style={{
+						display: 'block',
+					}}
 				/>
 			</Container>
 		</>

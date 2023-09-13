@@ -37,11 +37,11 @@ const downloadVideo = async (req: NextApiRequest, res: NextApiResponse) => {
 	try {
 		const { url, hd } = req.query
 		const videoInfoResponse = await axios.get(
-			URL_2!,
+			URL_1!,
 			{
 				headers: {
-					'X-RapidAPI-Key': X_RAPIDAPI_KEY_2,
-					'X-RapidAPI-Host': X_RAPIDAPI_HOST_2,
+					'X-RapidAPI-Key': X_RAPIDAPI_KEY_1,
+					'X-RapidAPI-Host': X_RAPIDAPI_HOST_1,
 				},
 				params: {
 					url,
