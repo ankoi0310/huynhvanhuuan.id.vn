@@ -1,5 +1,6 @@
 'use client'
 
+import AdBanner from '@/components/ads/AdBanner'
 import Link from '@/components/navigation/Link'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
@@ -141,6 +142,14 @@ export default function Page() {
 					</Container>
 				)
 			}
+			
+			<Container>
+				<AdBanner
+					data-ad-slot='4771983590'
+					data-ad-format='auto'
+					data-full-width-responsive='true'
+				/>
+			</Container>
 		</>
 	)
 }
