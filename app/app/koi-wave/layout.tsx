@@ -7,7 +7,7 @@ import { ThemeProvider } from '@/components/layout/ThemeProvider'
 import Script from 'next/script'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import React from 'react'
+import React, { Fragment } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 const title = 'Koi Wave'
@@ -47,31 +47,33 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang='en' className={'!scroll-smooth'} suppressHydrationWarning>
-			{
-				googleAnalyticsId ? (
-					<head>
-						<Script
-							async
-							src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
-						></Script>
-						<Script id='google-anayltics-script'>
-							{`
+			<head>
+				{
+					googleAnalyticsId ? (
+						<Fragment>
+							<Script
+								async
+								src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+							></Script>
+							<Script id='google-anayltics-script'>
+								{`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
           
             gtag('config', '${googleAnalyticsId}');
           `}
-						</Script>
-						<Script
-							async
-							src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID}`}
-							strategy='lazyOnload'
-							crossOrigin='anonymous'
-						/>
-					</head>
-				) : null
-			}
+							</Script>
+						</Fragment>
+					) : null
+				}
+				{/*<Script*/}
+				{/*	async*/}
+				{/*	src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID}`}*/}
+				{/*	strategy='lazyOnload'*/}
+				{/*	crossOrigin='anonymous'*/}
+				{/*/>*/}
+			</head>
 			<body className={`${inter.className} bg-gray text-gray-600 antialiased`}>
 				<ThemeProvider attribute={'class'}>
 					<AppHeader
