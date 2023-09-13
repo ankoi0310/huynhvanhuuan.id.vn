@@ -22,6 +22,8 @@ type ResponseData = {
 
 export const config = {
 	api: {
+		externalResolver: true,
+		bodyParser: false,
 		responseLimit: false,
 	},
 }
