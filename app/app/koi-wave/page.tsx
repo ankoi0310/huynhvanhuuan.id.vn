@@ -32,6 +32,7 @@ import {
 	useState,
 } from 'react'
 import { useForm } from 'react-hook-form'
+import useDownloader from 'react-use-downloader'
 import * as z from 'zod'
 
 const formSchema = z.object({
@@ -41,8 +42,8 @@ const formSchema = z.object({
 })
 
 export default function Page() {
+	const { size, elapsed, percentage, download, cancel, error, isInProgress } = useDownloader()
 	const [title, setTitle] = useState(WAVE_TITLE.TIKTOK)
-	const [error, setError] = useState<string | null>(null)
 	const [url, setUrl] = useState('')
 	const [embedVideo, setEmbedVideo] = useState<EmbedVideo | null>(null)
 	const searchParams = useSearchParams()
@@ -81,7 +82,6 @@ export default function Page() {
 			setUrl(data.url)
 			setEmbedVideo(response.data as EmbedVideo)
 		} else {
-			setError(response.data?.message)
 		}
 	}
 	
@@ -95,11 +95,7 @@ export default function Page() {
 				a.click()
 				break
 			case 2:
-				console.log(2)
-				let b = document.createElement('a')
-				b.href = `/api/koi-wave/tiktok/test`
-				b.download = 'video.mp4'
-				b.click()
+				download(`/api/koi-wave/tiktok/download?url=${url}&hd=${1}`, 'video.mp4')
 				break
 		}
 	}
