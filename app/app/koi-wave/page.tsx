@@ -133,9 +133,9 @@ export default function Page() {
 							</Card>
 							<div className={'flex-1 flex flex-col items-end justify-start pr-20'}>
 								<div className={'w-1/3 flex flex-col gap-4'}>
-									<Link href={`/api/koi-wave/tiktok/download?url=${url}&hd=${1}`} noCustomization>Download</Link>
-									<Button type={'submit'}>Download 1</Button>
-									<Button type={'submit'}>Download 2</Button>
+									{/*<Link href={`/api/koi-wave/tiktok/download?url=${url}&hd=${1}`} noCustomization>Download</Link>*/}
+									{/*<Button type={'submit'}>Download 1</Button>*/}
+									{/*<Button type={'submit'}>Download 2</Button>*/}
 								</div>
 							</div>
 						</div>
