@@ -17,6 +17,13 @@ export type ProjectDetail = {
 
 /* KOI WAVE */
 // TIKTOK
+export type TikTokResponse = {
+	code: number
+	msg: string
+	procesed_time: number
+	data?: VideoInfo
+}
+
 export type EmbedVideo = {
 	author_name: string
 	author_unique_id: string

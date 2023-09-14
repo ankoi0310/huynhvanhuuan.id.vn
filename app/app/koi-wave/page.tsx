@@ -14,7 +14,10 @@ import {
 import { Input } from '@/components/ui/input'
 import Typography from '@/components/ui/typography'
 import { WAVE_TITLE } from '@/lib/data'
-import { EmbedVideo } from '@/lib/types'
+import {
+	EmbedVideo,
+	TikTokResponse,
+} from '@/lib/types'
 import { zodResolver } from '@hookform/resolvers/zod'
 import {
 	Accordion,
@@ -73,9 +76,11 @@ export default function Page() {
 	}, [searchParams])
 	
 	const onSubmit = async (data: z.infer<typeof formSchema>) => {
-		const response = await axios.post(
-			'/api/koi-wave/tiktok/embed-video',
-			data,
+		const response = await axios.get(
+			'/api/app/koi-wave/tiktok/embed',
+			{
+				params: data,
+			},
 		)
 		
 		if (response.status == 200) {
@@ -85,18 +90,24 @@ export default function Page() {
 		}
 	}
 	
-	const handleDonwload = (link: number) => {
-		switch (link) {
-			case 1:
-				console.log(1)
-				let a = document.createElement('a')
-				a.href = `/api/koi-wave/tiktok/download?url=${url}&hd=${1}`
-				a.download = 'video.mp4'
-				a.click()
-				break
-			case 2:
-				download(`/api/koi-wave/tiktok/download?url=${url}&hd=${1}`, 'video.mp4')
-				break
+	const handleDonwload = async (link: number) => {
+		const response = await axios.get(
+			'/api/app/koi-wave/tiktok',
+			{
+				params: {
+					url,
+					hd: 1,
+					link,
+				},
+			},
+		)
+		
+		const tikTokResponse = response.data as TikTokResponse
+		
+		if (tikTokResponse.data) {
+			const videoInfo = tikTokResponse.data
+			const fileName = `KoiWave_${videoInfo.id}.mp4`
+			await download(videoInfo.hdplay, fileName)
 		}
 	}
 	
@@ -154,9 +165,8 @@ export default function Page() {
 							</Card>
 							<div className={'flex-1 flex flex-col items-end justify-start pr-20'}>
 								<div className={'w-1/3 flex flex-col gap-4'}>
-									<Link href={`/api/koi-wave/tiktok/download?url=${url}&hd=${1}`} noCustomization>Download</Link>
-									<Button type={'submit'} onClick={() => handleDonwload(1)}>Download 1</Button>
-									<Button type={'submit'} onClick={() => handleDonwload(2)}>Download 2</Button>
+									<Button onClick={() => handleDonwload(1)}>Download 1</Button>
+									<Button onClick={() => handleDonwload(2)}>Download 2</Button>
 								</div>
 							</div>
 						</div>
