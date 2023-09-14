@@ -1,7 +1,12 @@
 'use client'
 
 import Ads from '@/components/ads/Ads'
-import Link from '@/components/navigation/Link'
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import Container from '@/components/ui/container'
@@ -12,6 +17,7 @@ import {
 	FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { Progress } from '@/components/ui/progress'
 import Typography from '@/components/ui/typography'
 import { WAVE_TITLE } from '@/lib/data'
 import {
@@ -19,12 +25,6 @@ import {
 	TikTokResponse,
 } from '@/lib/types'
 import { zodResolver } from '@hookform/resolvers/zod'
-import {
-	Accordion,
-	AccordionContent,
-	AccordionItem,
-	AccordionTrigger,
-} from '@radix-ui/react-accordion'
 import axios from 'axios'
 import Image from 'next/image'
 import {
@@ -45,10 +45,11 @@ const formSchema = z.object({
 })
 
 export default function Page() {
-	const { size, elapsed, percentage, download, cancel, error, isInProgress } = useDownloader()
+	const { percentage, download, error, isInProgress } = useDownloader()
 	const [title, setTitle] = useState(WAVE_TITLE.TIKTOK)
 	const [url, setUrl] = useState('')
 	const [embedVideo, setEmbedVideo] = useState<EmbedVideo | null>(null)
+	
 	const searchParams = useSearchParams()
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
@@ -121,12 +122,12 @@ export default function Page() {
 				</div>
 				
 				<div className={'flex items-center justify-center'}>
-					<div className={'w-full md:w-2/3'}>
-						<Form {...form}>
-							<form onSubmit={form.handleSubmit(onSubmit)}>
-								<FormField name={'url'} control={form.control} render={({ field }) => (
-									<div className={'flex flex-col p-6 md:p-8 gap-2'}>
-										<div className={'flex w-full items-center max-w-7xl gap-4'}>
+					<Form {...form}>
+						<form onSubmit={form.handleSubmit(onSubmit)} className={'w-full sm:w-3/4 lg:w-2/3'}>
+							<FormField name={'url'} control={form.control} render={({ field }) => (
+								<div className={'flex flex-col items-center justify-center p-6 md:p-8 gap-4'}>
+									<div className={'w-full flex flex-col gap-2'}>
+										<div className={'flex items-center gap-4'}>
 											<FormControl>
 												<Input
 													type={'text'}
@@ -135,38 +136,56 @@ export default function Page() {
 													className={'p-6 focus-visible:ring-offset-0 focus-visible:ring-0'}
 												/>
 											</FormControl>
-											<Button type={'submit'}>Download</Button>
+											<Button type={'submit'} className={'hidden md:flex'}>Download</Button>
 										</div>
 										<FormMessage />
 									</div>
-								)} />
-							</form>
-						</Form>
-					</div>
+									<Button type={'submit'} className={'w-full flex md:hidden'}>Download</Button>
+								</div>
+							)} />
+						</form>
+					</Form>
 				</div>
 			</Container>
 			
 			{
 				embedVideo && (
 					<Container>
-						<div className={'w-full flex justify-between bg-gray-50 p-4'}>
-							<Card className={'h-fit flex-1 flex flex-row p-4 gap-4'}>
-								<Image
-									src={embedVideo.thumbnail_url}
-									alt={embedVideo.title}
-									width={75}
-									height={75}
-									className={'rounded-md min-w-[75px] w-[75px] h-[75px] object-cover'}
-								/>
-								<div className={'flex flex-col overflow-hidden'}>
-									<Typography variant={'body1'} className={'line-clamp-2'}>{embedVideo.title}</Typography>
-									<Typography variant={'body2'}>{embedVideo.author_name}</Typography>
+						<div className={'flex flex-col bg-gray-50 p-4 gap-8'}>
+							<div className={'px-8'}>
+								<div className={'flex flex-col'}>
+									{
+										isInProgress && (
+											<Typography className={'flex flex-row items-center justify-center gap-6'}>
+												<Progress value={percentage} max={100} /> {percentage}%
+											</Typography>
+										)
+									}
+									{
+										error && <Typography variant={'body1'} className={'text-red-500'}>{error.errorMessage}</Typography>
+									}
 								</div>
-							</Card>
-							<div className={'flex-1 flex flex-col items-end justify-start pr-20'}>
-								<div className={'w-1/3 flex flex-col gap-4'}>
-									<Button onClick={() => handleDonwload(1)}>Download 1</Button>
-									<Button onClick={() => handleDonwload(2)}>Download 2</Button>
+							</div>
+							<div className={'w-full flex flex-col md:flex-row gap-4 md:gap-2 justify-between'}>
+								<Card className={'h-fit md:flex-1 flex flex-row p-4 gap-4'}>
+									<Image
+										src={embedVideo.thumbnail_url}
+										alt={embedVideo.title}
+										width={75}
+										height={75}
+										className={'rounded-md min-w-[75px] w-[75px] h-[75px] object-cover'}
+									/>
+									<div className={'flex flex-col overflow-hidden'}>
+										<Typography variant={'body1'} className={'line-clamp-2'}>{embedVideo.title}</Typography>
+										<Typography>{embedVideo.author_name}</Typography>
+									</div>
+								</Card>
+								<div
+									className={'md:flex-1 flex flex-col items-center sm:items-end justify-start md:p-0 lg:pr-14 xl:pr-20'}>
+									<div className={'w-full md:w-2/3 lg:w-2/5 xl:w-1/3 flex flex-row md:flex-col gap-4'}>
+										<Button onClick={() => handleDonwload(1)} className={'flex-1'}>Download 1</Button>
+										<Button onClick={() => handleDonwload(2)} className={'flex-1'}>Download 2</Button>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -177,11 +196,10 @@ export default function Page() {
 			<Container>
 				<Ads
 					data-ad-slot='4771983590'
-					data-ad-layout='in-article'
-					data-ad-format='fluid'
+					data-ad-format='auto'
+					data-full-width-responsive='true'
 					style={{
 						display: 'block',
-						textAlign: 'center',
 					}}
 				/>
 			</Container>
@@ -195,17 +213,6 @@ export default function Page() {
 						</AccordionContent>
 					</AccordionItem>
 				</Accordion>
-			</Container>
-			
-			<Container>
-				<Ads
-					data-ad-slot='4771983590'
-					data-ad-format='auto'
-					data-full-width-responsive='true'
-					style={{
-						display: 'block',
-					}}
-				/>
 			</Container>
 		</>
 	)
