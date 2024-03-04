@@ -1,53 +1,102 @@
 import Container from '@/components/ui/container'
 import Typography from '@/components/ui/typography'
+import Link from "@/components/navigation/Link";
 
 export default function Page() {
-	return (
-		<Container>
-			<div className={'flex flex-col items-center px-12'}>
-				<Typography variant={'h1'} className={'mb-12'}>Chính sách quyền riêng tư</Typography>
-				<div className={'w-full flex flex-col justify-start gap-8'}>
-					<div className={'flex flex-col gap-4'}>
-						<Typography variant={'h3'}>I. Chính sách quyền riêng tư</Typography>
-						<Typography className={'leading-6'}>
-							Chúng tôi tôn trọng quyền riêng tư của mỗi cá nhân, vì thế chúng tôi luôn cố gắng bảo vệ toàn bộ thông tin
-							của mọi người. Chính sách về quyền riêng tư sẽ thể hiện quá trình chúng tôi thu thập, chuyển đổi, xử lý và
-							sử dụng.
-						</Typography>
-						<Typography className={'leading-6'}>
-							Bằng việc cung cấp thông tin cá nhân, bạn đã đồng ý và chấp nhận việc trao đổi, xử lý, sử dụng và công bố
-							thông tin được đề cập tại Chính sách này.
-						</Typography>
-					</div>
-					<div className={'flex flex-col gap-4'}>
-						<Typography variant={'h3'}>II. Chúng tôi Bảo mật thông tin như thế nào?</Typography>
-						<Typography className={'leading-6'}>
-							Chúng tôi sẽ luôn bảo mật thông tin cá nhân của bạn nhưng chúng tôi không đảm bảo sự an toàn các thông tin
-							bạn tải lên web hoặc qua ứng dụng di động: Bạn sẽ chịu rủi ro về các thông tin được tải lên. Vì chúng tôi
-							không thể đảm bảo tuyệt đối không có việc rò rỉ thông tin, sử dụng sai mục đích hoặc thay đổi dữ liệu, nên
-							ngay khi nhận được thông tin của bạn, chúng tôi sẽ sử dụng các biện pháp bảo mật chuyên môn để phòng tránh
-							các sự cố nêu trên xảy ra.
-						</Typography>
-					</div>
-					<div className={'flex flex-col gap-4'}>
-						<Typography variant={'h3'}>III. Chia sẻ thông tin với bên thứ ba</Typography>
-						<Typography className={'leading-6'}>
-							Chúng tôi cam kết sẽ không chia sẻ thông tin của bạn sang đơn vị thứ 3 hay bất kể đơn vị nào khác.
-						</Typography>
-					</div>
-					<div className={'flex flex-col gap-4'}>
-						<Typography variant={'h3'}>IV. Thay đổi chính sách</Typography>
-						<Typography className={'leading-6'}>
-							Chính sách quyền Riêng tư này đôi khi được cập nhật. Nếu sự thay đổi có tính chất quan trọng, chúng tôi sẽ
-							đăng thông báo trên trang web hoặc các ứng dụng và các thỏa thuận cấp phép liên quan. Chúng tôi khuyến
-							khích bạn nên thường xuyên tham khảo Chính sách Quyền Riêng Tư để cập nhật thông tin mới nhất về việc
-							chúng tôi bảo mật thông tin cá nhân thu thập được. Việc bạn tiếp tục sử dụng website đồng nghĩa với việc
-							chấp thuận điều khoản quyền Riêng tư và các cập nhật của Chính sách này. Những thay đổi trong chính sách
-							không áp dụng với các dữ liệu được thu thập trước đó.
-						</Typography>
-					</div>
-				</div>
-			</div>
-		</Container>
-	)
+    return (
+        <Container>
+            <div className={'flex flex-col px-12'}>
+                <Typography variant={'h1'} className={'mb-12 text-center uppercase'}>Chính sách quyền riêng tư</Typography>
+                <div className={'w-full flex flex-col justify-start gap-8 px-12'}>
+                    <div className={'flex flex-col gap-4'}>
+                        <Typography variant={'h3'}>1. Thông tin thu thập và sử dụng</Typography>
+                        <Typography className={'leading-6 pl-8'}>
+                            Ứng dụng &quot;Sinh viên Nông Lâm&quot; không thu thập, sử dụng hoặc chia sẻ bất kỳ thông
+                            tin cá nhân
+                            nào của người dùng, trừ thông tin cần thiết để hiển thị quảng cáo như quốc gia hoặc vùng địa
+                            lý.
+                        </Typography>
+                        <Typography className={'leading-6 pl-8'}>
+                            Dữ liệu cá nhân không được yêu cầu hoặc thu thập từ người dùng khi sử dụng ứng dụng này.
+                        </Typography>
+                    </div>
+                    <div className={'flex flex-col gap-4'}>
+                        <Typography variant={'h3'}>2. Quảng cáo</Typography>
+                        <Typography className={'leading-6 pl-8'}>
+                            Ứng dụng chứa quảng cáo để duy trì hệ thống và cung cấp dịch vụ miễn phí cho người dùng.
+                        </Typography>
+                        <Typography className={'leading-6 pl-8'}>
+                            Chúng tôi sử dụng mạng quảng cáo bên thứ ba, có thể thu thập thông tin không nhận dạng được
+                            để cung cấp quảng cáo phù hợp với người dùng.
+                        </Typography>
+                    </div>
+                    <div className={'flex flex-col gap-4'}>
+                        <Typography variant={'h3'}>3. Không liên kết đến trang web bên ngoài</Typography>
+                        <Typography className={'leading-6 pl-8'}>
+                            &quot;Sinh viên Nông Lâm&quot; không chứa bất kỳ liên kết đến trang web bên ngoài nào, đảm
+                            bảo an toàn
+                            và sự riêng tư cho người dùng.
+                        </Typography>
+                    </div>
+                    <div className={'flex flex-col gap-4'}>
+                        <Typography variant={'h3'}>4. Quyền truy cập</Typography>
+                        <Typography className={'leading-6 pl-8'}>
+                            Ứng dụng yêu cầu quyền truy cập vào internet để tải quảng cáo từ mạng quảng cáo bên thứ ba
+                            và đảm bảo tính liên tục của dịch vụ.
+                        </Typography>
+                    </div>
+                    <div className={'flex flex-col gap-4'}>
+                        <Typography variant={'h3'}>5. Bảo mật</Typography>
+                        <Typography className={'leading-6 pl-8'}>
+                            Chúng tôi cam kết bảo vệ thông tin cá nhân của người dùng và sử dụng các biện pháp bảo mật
+                            phù hợp để đảm bảo an toàn cho dữ liệu.
+                        </Typography>
+                    </div>
+                    <div className={'flex flex-col gap-4'}>
+                        <Typography variant={'h3'}>6. Tuân thủ luật pháp</Typography>
+                        <Typography className={'leading-6 pl-8'}>
+                            Chúng tôi cam kết tuân thủ tất cả các luật pháp liên quan đến bảo mật và quyền riêng tư của
+                            người dùng, bao gồm cả GDPR (Nghị định Bảo vệ Dữ liệu Chung) nếu áp dụng.
+                        </Typography>
+                    </div>
+                    <div className={'flex flex-col gap-4'}>
+                        <Typography variant={'h3'}>7. Liên hệ</Typography>
+                        <Typography className={'leading-6 pl-8'}>
+                            Nếu có bất kỳ câu hỏi hoặc ý kiến nào về chính sách bảo mật này, vui lòng liên hệ với chúng
+                            tôi qua địa chỉ email: huynhvahuuan3620@gmail.com.
+                        </Typography>
+                    </div>
+                    <div className={'flex flex-col gap-4'}>
+                        <Typography variant={'h3'}>8. Sự thay đổi trong chính sách bảo mật</Typography>
+                        <Typography className={'leading-6 pl-8'}>
+                            Chúng tôi có thể cập nhật chính sách bảo mật này từ thời gian này sang thời gian khác. Mọi
+                            thay đổi sẽ được thông báo qua ứng dụng hoặc trang web chính thức của chúng tôi.
+                        </Typography>
+                    </div>
+                    <div className={'flex flex-col gap-4'}>
+                        <Typography variant={'h3'}>9. Sự đồng ý</Typography>
+                        <Typography className={'leading-6 pl-8'}>
+                            Việc sử dụng ứng dụng &quot;Sinh viên Nông Lâm&quot; đồng nghĩa với việc bạn đồng ý với
+                            chính sách bảo
+                            mật và quyền riêng tư của chúng tôi.
+                        </Typography>
+                    </div>
+                </div>
+                {/* Read carefully */}
+                <Typography className={'mt-8'}>
+                    Trên đây là chính sách bảo mật của ứng dụng &quot;Sinh viên Nông Lâm&quot;.
+                    Vui lòng đọc kỹ và hiểu rõ chính sách bảo mật trước khi sử dụng ứng dụng. Chân thành cảm ơn bạn đã
+                    sử dụng ứng dụng của chúng tôi.
+                </Typography>
+                <Typography className={'mt-8 text-end'}>
+                    Cập nhật lần cuối: 04/03/2024
+                </Typography>
+                <Typography variant={'h2'} className={'mt-12'}>
+                    <Link href={'https://play.google.com/store/apps/details?id=it.cwk.nlu_v2'} externalLink>
+                        Cập nhật ứng dụng trên Google Play tại đây
+                    </Link>
+                </Typography>
+            </div>
+        </Container>
+    )
 }
