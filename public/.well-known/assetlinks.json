@@ -1,0 +1,11 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "vn.edu.hcmuaf.fit.cinemix_ui",
+      "sha256_cert_fingerprints":
+        ["E9:6B:B5:AE:41:1D:3A:1F:EE:AE:42:73:5F:CC:9C:A6:CE:44:59:F7:57:21:4E:6F:82:CC:B0:72:9D:53:EA:BB"]
+    }
+  }
+]
